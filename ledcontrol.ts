@@ -1,6 +1,6 @@
 //% color=#5C2D91 icon="\uf205"
 //%advanced=true weight=100 
-namespace LedControl {
+namespace K3LedControl {
     //%blockId="LCplotLedValue"
     //%block="plot led %ledNum value %value"
     //%group=Graphs
@@ -64,14 +64,38 @@ namespace LedControl {
         let y = Math.floor(ledNum / 5)
         led.plot(x, y)
     }
-    //%blockId="LCplotLedValue"
+    //%blockId="LCclearColumn"
     //%block="clear column $colNum"
     //%group="Leds"
-    //%ledNum.min=0 ledNum.max=4 value.min=0 value.max=5
+    //%colNum.min=0 colNum.max=4 
     export function clearColumn(colNum: number) {
         for (let i = 0; i < 5; i++) {
             led.unplot(colNum, i)
         }
+    }
+        //%blockId="LCclearColumn"
+        //%block="fill screen $screen"
+        //%group="Leds"
+        //%colNum.min=0 colNum.max=4 
+        export function fillScreen(screen: boolean) {
+            if (screen) {
+                
+                basic.showLeds(`
+                # # # # #
+                # # # # #
+                # # # # #
+                # # # # #
+                # # # # #
+                `)
+            } else {
+                basic.showLeds(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                `)
+            }
     }   
 }
 
