@@ -1,6 +1,11 @@
 //% color=#5C2D91 icon="\uf205"
 //%advanced=true weight=100 
 namespace K3LedControl {
+    enum ScreenMode {
+        screenOn = 0,
+        screenOff = 1
+    }
+    
     //%blockId="LCplotLedValue"
     //%block="plot led %ledNum value %value"
     //%group=Graphs
@@ -73,21 +78,21 @@ namespace K3LedControl {
             led.unplot(colNum, i)
         }
     }
-        //%blockId="LCclearColumn"
-        //%block="fill screen $screen"
-        //%group="Leds"
-        //%colNum.min=0 colNum.max=4 
-        export function fillScreen(screen: boolean) {
-            if (screen) {
-                
+    //%blockId="LCfillScreen"
+    //%block="fill screen $screen"
+    //%group="Leds"
+    //%colNum.min=0 colNum.max=4 
+    export function fillScreen(screen: ScreenMode) {
+        switch (screen) {
+            case ScreenMode.screenOn:
                 basic.showLeds(`
-                # # # # #
-                # # # # #
-                # # # # #
-                # # # # #
-                # # # # #
+                    # # # # #
+                    # # # # #
+                    # # # # #
+                    # # # # #
+                    # # # # #
                 `)
-            } else {
+            case ScreenMode.screenOff:
                 basic.showLeds(`
                     . . . . .
                     . . . . .
@@ -95,7 +100,7 @@ namespace K3LedControl {
                     . . . . .
                     . . . . .
                 `)
-            }
+        }
     }   
 }
 
