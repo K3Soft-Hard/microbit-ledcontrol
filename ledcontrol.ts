@@ -92,6 +92,7 @@ namespace K3LedControl {
                     # # # # #
                     # # # # #
                 `)
+                break
             case ScreenMode.ledOff:
                 basic.showLeds(`
                     . . . . .
@@ -100,6 +101,7 @@ namespace K3LedControl {
                     . . . . .
                     . . . . .
                 `)
+                break
         }
     }   
 }
