@@ -3,8 +3,9 @@
 namespace LedControl {
 
     //%blockId="LCplotLedValue"
-    //%block="plot led %led value %value"
+    //%block="plot led %ledNum value %value"
     //%group=Graphs
+    //%ledNum.min=0 ledNum.max=4 value.min=0 value.max=5
     export function plotLedGraph(ledNum: number, value: number) {
         led.unplot(ledNum, 0)
         led.unplot(ledNum, 1)
@@ -19,6 +20,7 @@ namespace LedControl {
     //%block="set %setpin to led x:%ledx y:%ledy"
     //%advanced=true
     //%group=Hardware
+    //%ledx.min=0 ledx.max=4 ledy.min=0 ledy.max=4
     export function setPinLed(setpin: DigitalPin, ledx: number, ledy: number) {
         let pinboolean = 0
         if (led.point(ledx, ledy)) {
@@ -45,6 +47,7 @@ namespace LedControl {
     //%blockId="LCreadLedGraph"
     //%block="read led graph on $ledNum"
     //%group="Graphs"
+    //%ledNum.min=0 ledNum.max=4
     export function readLedGraph(ledNum: number) {
         let value = 0
         for (let _index = 0; _index <= 4; _index++) {
@@ -53,6 +56,15 @@ namespace LedControl {
             }
         }
         return value
+    }
+    //%blockId="LClinearPlot"
+    //%block="linear plot on $ledNum"
+    //%group="Graphs"
+    //%ledNum.min=0 ledNum.max=24
+    export function linearPlot(ledNum: number) {
+        let x = Math.floor(ledNum % 5)
+        let y = Math.floor(ledNum / 5)
+        led.plot(x, y)
     }
 }
 
