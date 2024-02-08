@@ -2,8 +2,8 @@
 //%advanced=true weight=100 
 namespace K3LedControl {
     export enum ScreenMode {
-        screenOn = 0,
-        screenOff = 1
+        ledOn = 0,
+        ledOff = 1
     }
     
     //%blockId="LCplotLedValue"
@@ -84,7 +84,7 @@ namespace K3LedControl {
     //%colNum.min=0 colNum.max=4 
     export function fillScreen(screen: ScreenMode) {
         switch (screen) {
-            case ScreenMode.screenOn:
+            case ScreenMode.ledOn:
                 basic.showLeds(`
                     # # # # #
                     # # # # #
@@ -92,7 +92,7 @@ namespace K3LedControl {
                     # # # # #
                     # # # # #
                 `)
-            case ScreenMode.screenOff:
+            case ScreenMode.ledOff:
                 basic.showLeds(`
                     . . . . .
                     . . . . .
