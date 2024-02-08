@@ -1,19 +1,17 @@
 //% color=#5C2D91 icon="\uf205"
 //%advanced=true weight=100 
 namespace LedControl {
-
     //%blockId="LCplotLedValue"
     //%block="plot led %ledNum value %value"
     //%group=Graphs
     //%ledNum.min=0 ledNum.max=4 value.min=0 value.max=5
     export function plotLedGraph(ledNum: number, value: number) {
-        led.unplot(ledNum, 0)
-        led.unplot(ledNum, 1)
-        led.unplot(ledNum, 2)
-        led.unplot(ledNum, 3)
-        led.unplot(ledNum, 4)
-        for (let _index = 0; _index <= value; _index++) {
-            led.plot(ledNum, 4 - (_index - 1))
+        for (let i = 0; i < 5; i++) {
+            if (i < value) {
+                led.plot(ledNum, i)
+            } else {
+                led.unplot(ledNum, i)
+            }
         }
     }
     //%blockId="LCsetPinLed"
@@ -59,12 +57,21 @@ namespace LedControl {
     }
     //%blockId="LClinearPlot"
     //%block="linear plot on $ledNum"
-    //%group="Graphs"
+    //%group="Leds"
     //%ledNum.min=0 ledNum.max=24
     export function linearPlot(ledNum: number) {
         let x = Math.floor(ledNum % 5)
         let y = Math.floor(ledNum / 5)
         led.plot(x, y)
     }
+    //%blockId="LCplotLedValue"
+    //%block="clear column $colNum"
+    //%group="Leds"
+    //%ledNum.min=0 ledNum.max=4 value.min=0 value.max=5
+    export function clearColumn(colNum: number) {
+        for (let i = 0; i < 5; i++) {
+            led.unplot(colNum, i)
+        }
+    }   
 }
 
