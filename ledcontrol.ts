@@ -1,7 +1,7 @@
 //% color=#5C2D91 icon="\uf205"
 //%advanced=true weight=100 
 namespace K3LedControl {
-    enum ScreenMode {
+    export enum ScreenMode {
         screenOn = 0,
         screenOff = 1
     }
