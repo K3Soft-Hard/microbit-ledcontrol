@@ -107,7 +107,7 @@ namespace K3LedControl {
                     # . # . #
                 `)
                 break
-            case ScreenMode.chessboard:
+            case ScreenMode.invertedChessboard:
                 basic.showLeds(`
                     . # . # .
                     # . # . #
