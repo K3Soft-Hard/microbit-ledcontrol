@@ -3,7 +3,9 @@
 namespace K3LedControl {
     export enum ScreenMode {
         ledOn = 0,
-        ledOff = 1
+        ledOff = 1,
+        chessboard = 2,
+        invertedChessboard = 3
     }
     
     //%blockId="LCplotLedValue"
@@ -94,12 +96,24 @@ namespace K3LedControl {
                 `)
                 break
             case ScreenMode.ledOff:
+                basic.clearScreen()
+                break
+            case ScreenMode.chessboard:
                 basic.showLeds(`
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
-                    . . . . .
+                    # . # . #
+                    . # . # .
+                    # . # . #
+                    . # . # .
+                    # . # . #
+                `)
+                break
+            case ScreenMode.chessboard:
+                basic.showLeds(`
+                    . # . # .
+                    # . # . #
+                    . # . # .
+                    # . # . #
+                    . # . # .
                 `)
                 break
         }
