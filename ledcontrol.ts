@@ -117,6 +117,24 @@ namespace K3LedControl {
                 `)
                 break
         }
-    }   
+    }
+    //%blockId="LCshowText"
+    //%block="show text $text"
+    //%group="Leds"
+    //%colNum.min=0 colNum.max=4 
+    export function showText(text: string) {
+        for (let _index = 0; _index <= text.length; _index++) {
+            basic.showString(text.charAt(_index))
+        }
+    }
+    //%blockId="LCrepeatTextAndShow"
+    //%block="repeat $text and show "
+    //%group="Leds"
+    //%colNum.min=0 colNum.max=4 
+    export function repeatTextAndShow(text: string) {
+        for (let _index = 0; _index <= text.length; _index++) {
+            basic.showString(text.substr(0, _index))
+        }
+    }
 }
 
