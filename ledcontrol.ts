@@ -7,6 +7,10 @@ namespace K3LedControl {
         chessboard = 2,
         invertedChessboard = 3
     }
+    export enum Direction {
+        horizontal = 0,
+        vertical = 1
+    }
     
     //%blockId="LCplotLedValue"
     //%block="plot led %ledNum value %value"
@@ -63,13 +67,24 @@ namespace K3LedControl {
         return value
     }
     //%blockId="LClinearPlot"
-    //%block="linear plot on $ledNum"
+    //%block="linear plot on $ledNum|| $direction "
     //%group="Leds"
     //%ledNum.min=0 ledNum.max=24
-    export function linearPlot(ledNum: number) {
-        let x = Math.floor(ledNum % 5)
-        let y = Math.floor(ledNum / 5)
+    export function linearPlot(ledNum: number, direction: Direction) {
+        let x, y
+        switch (direction) {
+            case Direction.horizontal:
+                x = Math.floor(ledNum % 5)
+                y = Math.floor(ledNum / 5)
+                
+                break
+            case Direction.vertical:
+                x = Math.floor(ledNum / 5)
+                y = Math.floor(ledNum % 5)
+                break
+        }
         led.plot(x, y)
+       
     }
     //%blockId="LCclearColumn"
     //%block="clear column $colNum"
