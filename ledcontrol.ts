@@ -70,7 +70,7 @@ namespace K3LedControl {
     //%block="linear plot on $ledNum|| $direction "
     //%group="Leds"
     //%ledNum.min=0 ledNum.max=24
-    export function linearPlot(ledNum: number, direction: Direction) {
+    export function linearPlot(ledNum: number, direction: Direction = Direction.horizontal) {
         let x, y
         switch (direction) {
             case Direction.horizontal:
