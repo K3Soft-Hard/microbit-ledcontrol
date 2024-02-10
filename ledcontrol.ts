@@ -188,16 +188,10 @@ namespace K3LedControl {
                 led.plot(col, i)
             }
         }
-
-        /**
-         * Displays number as on the soroban abacus.
-         * @param n the number, eg: 0
-         * @param alignment align to the given column, eg: Right
-         * @param refresh refresh the screen, eg: true
-         */
         //% blockId=soroban_show_number
         //% block="show number $n || align $alignment refresh $refresh"
         //% weight=99
+        //%group="Leds"
         export function showNumber(n: number, alignment: Align = 4, refresh: boolean = true) {
             let nStr = n.toString();
 
