@@ -10,25 +10,7 @@ namespace K3LedControl {
     export enum Direction {
         horizontal = 0,
         vertical = 1
-    }
-    const enum Align {
-        //% block="Right"
-        Right = 4,
-        //% block="Left"
-        Left = -1,
-        //% block="Column 1"
-        C1 = 0,
-        //% block="Column 2"
-        C2 = 1,
-        //% block="Column 3"
-        C3 = 2,
-        //% block="Column 4"
-        C4 = 3,
-        //% block="Column 5"
-        C5 = 4,
-    }
-
-    
+    }    
     //%blockId="LCplotLedValue"
     //%block="plot led %ledNum value %value"
     //%group=Graphs
@@ -168,80 +150,5 @@ namespace K3LedControl {
             basic.showString(text.substr(0, _index))
         }
     }
-    //% block="Soroban" color="#8B4513" weight=100 icon="\uf2a1"
-    namespace soroban {
-        let numberLengthByColumn: Align[]
-
-        function showDigit(n: number, col: number, refresh: boolean) {
-            if (!refresh) {
-                for (let i = 0; i <= 4; i++) {
-                    led.unplot(col, i)
-                }
-            }
-
-            if (n >= 5) {
-                led.plot(col, 0)
-                n = n - 5
-            }
-
-            for (let i = 1; i <= n; i++) {
-                led.plot(col, i)
-            }
-        }
-        //% blockId=soroban_show_number
-        //% block="show number $n || align $alignment refresh $refresh"
-        //% weight=99
-        //%group="Leds"
-        export function showNumber(n: number, alignment: Align = 4, refresh: boolean = true) {
-            let nStr = n.toString();
-
-            if (nStr.length > 5) {
-                nStr = nStr.substr(0, 5)
-            }
-
-            let chars = nStr.split('')
-            let charsLength = chars.length
-            let c = 5 - charsLength
-
-            if (alignment == -1) {
-                c = 0
-            } else {
-                c = alignment + 1 - charsLength
-            }
-
-            if (refresh) {
-                basic.clearScreen()
-            }
-
-            while (c < 5) {
-                let p = chars.shift()
-
-                if (p == '.') {
-                    led.plot(c, 4)
-                } else if (p == '-') {
-                    led.plot(c, 2)
-                } else {
-                    showDigit(parseInt(p), c, refresh)
-                }
-
-                c += 1
-            }
-
-            if (refresh || numberLengthByColumn == undefined) {
-                numberLengthByColumn = [0, 0, 0, 0, 0]
-            }
-
-            if (!refresh) {
-                let dn = numberLengthByColumn[alignment] - charsLength
-
-                for (let i = dn; i > 0; i--) {
-                    showDigit(0, alignment - i, false)
-                }
-            }
-
-            numberLengthByColumn[alignment] = charsLength
-        }
-    }
-
 }
 
