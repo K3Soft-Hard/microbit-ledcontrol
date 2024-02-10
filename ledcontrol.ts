@@ -150,5 +150,15 @@ namespace K3LedControl {
             basic.showString(text.substr(0, _index))
         }
     }
+        //%blockId="LCplotRectangle"
+        //%block="plot rectangle from $ledx to $ledy"
+        //%group="Plot"
+        //%ledx.min=0 ledx.max=4 ledy.min=0 ledy.max=4 
+    export function plotRectangle(ledx: number, ledy: number) {
+            for (let index = 0; index <= ledx; index++) {
+                for (let index2 = 0; index2 <= ledy; index2++) {
+                    led.plot(index, index2)
+            }
+        }
+    }
 }
-
