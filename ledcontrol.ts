@@ -154,9 +154,12 @@ namespace K3LedControl {
         //%block="plot rectangle from x$ledx y$ledy to x$ledx2 y$ledy2"
         //%group="Plot"
         //%ledx.min=0 ledx.max=4 ledy.min=0 ledy.max=4 ledx2.min=0 ledx2.max=4 ledy2.min=0 ledy2.max=4 
+        
     export function plotRectangle(ledx: number, ledy: number,ledx2: number,ledy2: number) {
-        for (let index = 0; index <= ledx2; index++) {
-            for (let index2 = 0; index2 <= ledy2; index2++) {
+        let x2 = ledx2 + 1
+        let y2 = ledy2 + 1
+        for (let index = 0; index <= x2; index++) {
+            for (let index2 = 0; index2 <= y2; index2++) {
                 led.plot(ledx + index, ledy + index2)
             }
         }
