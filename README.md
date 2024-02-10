@@ -51,7 +51,7 @@ basic.forever(function () {
 
 * Plot rectangle
 ```blocks
-K3LedControl.plotRectangle(3, 3)
+K3LedControl.plotRectangle(1,1,3,3)
 ```
 
 
