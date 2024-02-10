@@ -167,6 +167,6 @@ export function plotRectangle(ledx: number, ledy: number,ledx2: number,ledy2: nu
     //%block="scroll text $text"
     //%group="Show"
     export function scrollText(text: string) {
-        basic.showString("text")
+        basic.showString(text)
     }
 }
