@@ -151,13 +151,16 @@ namespace K3LedControl {
         }
     }
         //%blockId="LCplotRectangle"
-        //%block="plot rectangle from $ledx to $ledy"
+        //%block="plot rectangle from        x$ledx y$ledy to x$ledx2 y$ledy2"
         //%group="Plot"
         //%ledx.min=0 ledx.max=4 ledy.min=0 ledy.max=4 
-    export function plotRectangle(ledx: number, ledy: number) {
-            for (let index = 0; index <= ledx; index++) {
-                for (let index2 = 0; index2 <= ledy; index2++) {
-                    led.plot(index, index2)
+    export function plotRectangle(ledx: number, ledy: number,ledx2: number,ledy2: number) {
+
+        let y2 = ledy2 - 1
+        let x2 = ledx2 - 1
+        for (let index = 0; index <= x2; index++) {
+            for (let index2 = 0; index2 <= y2; index2++) {
+                led.plot(ledx + index, ledy + index2)
             }
         }
     }
