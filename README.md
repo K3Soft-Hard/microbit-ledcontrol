@@ -49,6 +49,13 @@ basic.forever(function () {
 })
 ```
 
+* Plot rectangle
+```blocks
+K3LedControl.plotRectangle(3, 3)
+```
+
+
+
 
 
 
