@@ -151,7 +151,7 @@ namespace K3LedControl {
         }
     }
         //%blockId="LCplotRectangle"
-        //%block="plot rectangle from        x$ledx y$ledy to x$ledx2 y$ledy2"
+        //%block="plot rectangle from           x$ledx y$ledy to x$ledx2 y$ledy2"
         //%group="Plot"
         //%ledx.min=0 ledx.max=4 ledy.min=0 ledy.max=4 
     export function plotRectangle(ledx: number, ledy: number,ledx2: number,ledy2: number) {
