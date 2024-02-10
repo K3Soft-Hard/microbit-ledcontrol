@@ -1,5 +1,56 @@
+>  Otvoriť túto stránku na [https://k3soft-hard.github.io/microbit-ledcontrol/](https://k3soft-hard.github.io/microbit-ledcontrol/)
 
-> Otvoriť túto stránku na [https://k3soft-hard.github.io/microbit-ledcontrol/](https://k3soft-hard.github.io/microbit-ledcontrol/)
+## Introduction
+![icon](https://github.com/K3Soft-Hard/microbit-ledcontrol/raw/master/icon.png)
+
+This extension allows better control of the 5x5 display
+on a micro:bit
+
+## Usage Example
+
+* Test code
+```blocks
+basic.forever(function () {
+    K3LedControl.fillScreen(K3LedControl.ScreenMode.chessboard)
+    basic.pause(200)
+    K3LedControl.fillScreen(K3LedControl.ScreenMode.invertedChessboard)
+    basic.pause(200)
+})
+
+```
+
+* Fill screen
+```blocks
+K3LedControl.fillScreen(K3LedControl.ScreenMode.ledOn)
+```
+
+* Show value on column
+```blocks
+K3LedControl.plotLedGraph(0, 0)
+```
+
+* Read value on column
+```blocks
+(K3LedControl.readLedGraph(0)
+```
+
+* Linear Plot
+```blocks
+K3LedControl.linearPlot(0, K3LedControl.Direction.horizontal)
+```
+
+* Test code for automated pin switching
+```blocks
+input.onButtonPressed(Button.A, function () {
+    led.toggle(0, 0)
+})
+basic.forever(function () {
+    K3LedControl.setPinLed(DigitalPin.P0, 0, 0)
+})
+```
+
+
+
 
 ## Použiť ako rozšírenie
 
