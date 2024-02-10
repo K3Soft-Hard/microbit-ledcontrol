@@ -134,7 +134,7 @@ namespace K3LedControl {
     }
     //%blockId="LCshowText"
     //%block="show text $text"
-    //%group="Leds"
+    //%group="Show"
     //%colNum.min=0 colNum.max=4 
     export function showText(text: string) {
         for (let _index = 0; _index <= text.length; _index++) {
@@ -143,7 +143,7 @@ namespace K3LedControl {
     }
     //%blockId="LCrepeatTextAndShow"
     //%block="repeat $text and show "
-    //%group="Leds"
+    //%group="Show"
     //%colNum.min=0 colNum.max=4 
     export function repeatTextAndShow(text: string) {
         for (let _index = 0; _index <= text.length; _index++) {
