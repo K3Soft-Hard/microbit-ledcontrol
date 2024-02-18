@@ -164,9 +164,9 @@ export function plotRectangle(ledx: number, ledy: number,ledx2: number,ledy2: nu
         }
     }
 //%block="LCscrollText"
-    //%block="scroll text $text"
+    //%block="scroll text $text|| interval $interval"
     //%group="Show"
-    export function scrollText(text: string) {
-        basic.showString(text)
+    export function scrollText(text: string, interval: number = 0) {
+        basic.showString(text, interval)
     }
 }
