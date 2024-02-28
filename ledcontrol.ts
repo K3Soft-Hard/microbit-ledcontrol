@@ -167,7 +167,7 @@ export function plotRectangle(ledx: number, ledy: number,ledx2: number,ledy2: nu
     //%block="scroll text $text|| interval $interval"
     //%group="Show"
     //%interval.min=50 interval.max=500
-    export function scrollText(text: string, interval: number = 0) {
+    export function scrollText(text: string, interval: number = 100) {
         basic.showString(text, interval)
     }
 }
