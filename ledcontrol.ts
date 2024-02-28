@@ -18,9 +18,9 @@ namespace K3LedControl {
     export function plotLedGraph(ledNum: number, value: number) {
         for (let i = 0; i < 5; i++) {
             if (i < value) {
-                led.plot(ledNum, i)
+                led.plot(ledNum, 4 - i)
             } else {
-                led.unplot(ledNum, i)
+                led.unplot(ledNum, 4 - i)
             }
         }
     }
